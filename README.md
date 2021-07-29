@@ -15,7 +15,7 @@ ____________________________________________________________________
 
 [Online Web Tool](https://clintegrate.herokuapp.com/)
 
-# Basic Usage
+# Getting Started
 
 
 The following disease models are available with varaint integration in genes associated with each condition:
@@ -29,13 +29,29 @@ The following disease models are available with varaint integration in genes ass
 #### Initalizing a model
 
 ```python
-from clintegrate import IntegrativePredictiveModel as ipm
+from clintegrate.predictors import IntegrativePredictiveModel as ipm
 
 # Making predictions of coronary artery disease risk using LDLR variants
 ipm.initialize("LDLR")
-
 ```
 
+Disease models have different required fields for accurate risk assessments, which
+we're actively updating. It's always a good idea to look at the example data:
 
+```python
+ipm.load_example_data()
+```
++---------+-------+-------+------------------+----------------+
+| id      | sex   |   PRS |   Family History | variant        |
++=========+=======+=======+==================+================+
+| person1 | M     | -0.54 |                0 |                |
++---------+-------+-------+------------------+----------------+
+| person2 | F     |  2.51 |                1 | 2-21001432-G-A |
++---------+-------+-------+------------------+----------------+
+| person3 | F     |  0    |                1 | 2-21001769-G-T |
++---------+-------+-------+------------------+----------------+
+| person4 | F     |  1.3  |                0 |                |
++---------+-------+-------+------------------+----------------+
 
-
+Variants are always optional for making risk assessments, however the field and
+the remaining fields are required.  

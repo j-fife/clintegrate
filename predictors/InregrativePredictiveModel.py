@@ -15,14 +15,14 @@ import pandas as pd
 import pickle
 
 
-class PartialHazardPredictior():
+class IntegrativePredictiveModel():
     def __init__(self):
         self.gene = None
         self.model = None
         self.precomputed_snps = None
         self.initialized = False
 
-    def initialize_gene(self, gene):
+    def initialize(self, gene):
         if gene in included_genes:
             self.gene = gene
             self.model = f"./models/{gene}.clintegrate"
@@ -42,6 +42,11 @@ class PartialHazardPredictior():
 
     def help(self):
         print(help_statement)
+
+    def load_example_data(self):
+        self.validate_initialized()
+        df = pd.read_csv(f"./example_data/{self.gene}.csv", index_col = 0)
+        return df
 
     def validate_input_csv(self, df):
         self.validate_initialized()
@@ -136,12 +141,13 @@ class PartialHazardPredictior():
 
 
 if __name__ == "__main__":
-    p = PartialHazardPredictior()
-    p.initialize_gene("APOB")
+    p = IntegrativePredictiveModel()
+    p.initialize("APOB")
     df = pd.read_csv("./precomputed_snp_values/APOB.csv").set_index("name")
     variants = list(df.index)
     p.generate_risk_predictions("./example_data/APOB.csv")
-    #p.validate_reference_alleles(variants)
-    print(df.loc[df["Missense"] == 1].index.values[:4])
+    d = p.load_example_data()
+    print(d.to_markdown(tablefmt="grid"))
+    # print(df.loc[df["Missense"] == 1].index.values[:4])
     # p.help()
     # raise(VariantFormatException("NON VARIANT"))
