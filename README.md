@@ -23,6 +23,7 @@ The following disease models are available with varaint integration in genes ass
 |        Condition        	|       Genes       	|
 |:-----------------------:	|:-----------------:	|
 | Breast Cancer           	| BRCA1, BRCA2      	|
+| Colorectal Cancer 	| MLH1, MSH2, MSH6, PMS2 	|
 | Coronary Artery Disease 	| APOB, LDLR, PCSK9 	|
 
 
