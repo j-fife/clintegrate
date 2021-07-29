@@ -41,17 +41,14 @@ we're actively updating. It's always a good idea to look at the example data:
 ```python
 ipm.load_example_data()
 ```
-+---------+-------+-------+------------------+----------------+
 | id      | sex   |   PRS |   Family History | variant        |
-+=========+=======+=======+==================+================+
+|:--------|:------|------:|-----------------:|:---------------|
 | person1 | M     | -0.54 |                0 |                |
-+---------+-------+-------+------------------+----------------+
 | person2 | F     |  2.51 |                1 | 2-21001432-G-A |
-+---------+-------+-------+------------------+----------------+
 | person3 | F     |  0    |                1 | 2-21001769-G-T |
-+---------+-------+-------+------------------+----------------+
 | person4 | F     |  1.3  |                0 |                |
-+---------+-------+-------+------------------+----------------+
+
 
 Variants are always optional for making risk assessments, however the field and
 the remaining fields are required.  
+
