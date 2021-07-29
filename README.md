@@ -17,7 +17,6 @@ ____________________________________________________________________
 
 # Basic Usage
 
-#### Initalizing a model
 
 The following disease models are available with varaint integration in genes associated with each condition:
 
@@ -25,6 +24,17 @@ The following disease models are available with varaint integration in genes ass
 |:-----------------------:	|:-----------------:	|
 | Breast Cancer           	| BRCA1, BRCA2      	|
 | Coronary Artery Disease 	| APOB, LDLR, PCSK9 	|
+
+
+#### Initalizing a model
+
+```python
+from clintegrate import IntegrativePredictiveModel as ipm
+
+# Making predictions of coronary artery disease risk using LDLR variants
+ipm.initialize("LDLR")
+
+```
 
 
 
