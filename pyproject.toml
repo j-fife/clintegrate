@@ -1,0 +1,6 @@
+[build-system]
+requires = [
+  "setupools>=42",
+  "wheel"
+]
+build_backend = "setupools.build_meta"
