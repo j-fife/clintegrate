@@ -92,7 +92,7 @@ To predict [partial hazard](https://lifelines.readthedocs.io/en/latest/Survival%
 
 ```python
 example_data = ipm.load_example_data()
-result = generate_risk_predictions(example_data)
+generate_risk_predictions(example_data)
 ```
 
 | id      |   sex |   PRS |   Family History | variant        |   Partial Hazard Prediction |
