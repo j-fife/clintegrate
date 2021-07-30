@@ -15,6 +15,29 @@ ____________________________________________________________________
 
 [Online Web Tool](https://clintegrate.herokuapp.com/)
 
+
+# About 
+Read our full manuscript [Here](./#) (preprint)
+
+Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is a intergrative 
+risk prediction framework designed to address issues around variant interpretation as it pertains to current 
+practices in precision medicine. 
+
+From our manuscript:
+>Mapping germline variants to personalized clinical risk is a major goal in precision medicine.[1] While clinical 
+>diagnostic testing has advanced dramatically, the interpretation of monogenic variants remains challenging, 
+>and is generally done at the variant level.[2] To date, such genetic testing has largely been conducted in 
+>the presence of a phenotypic indication, where the prior probability of detecting a causal variant is high.[3] 
+>However, subsequent population screening efforts have identified substantial incomplete penetrance or reduced 
+>expressivity in these previously identified monogenic disease variants[4–6] and assessed how the risk attributable 
+>to these variants can be modified by clinical and polygenic risk factors.[7–9] 
+
+We present a framework that integrates patient-level information 
+(Polygenic Risk Scores, Family History, Sex, etc.), monogenic variant-level features (CADD, Allele Frequency, GERP, 
+CpG Context, phyloP, etc.) and protein regional information to create an overall measurement of risk. With growing 
+availability of population-level sequencing efforts and diagnostic data, we aim to continually expand this model 
+to include additioanl phenotypes and risk factors (genetic and non-genetic).   
+
 # Getting Started
 
 
@@ -27,13 +50,18 @@ The following disease models are available with varaint integration in genes ass
 | Coronary Artery Disease 	| APOB, LDLR, PCSK9 	|
 
 
-#### Initalizing a model
+&nbsp;
+&nbsp;
+&nbsp;
+
+## Initalizing a model
 
 ```python
-from clintegrate.predictors import IntegrativePredictiveModel as ipm
+from clintegrate.predictors import IntegrativePredictiveModel
 
-# Making predictions of coronary artery disease risk using LDLR variants
-ipm.initialize("LDLR")
+# Making predictions of coronary artery disease risk using APOB variants
+ipm = IntegrativePredictiveModel()
+ipm.initialize("APOB")
 ```
 
 Disease models have different required fields for accurate risk assessments, which
@@ -52,4 +80,52 @@ ipm.load_example_data()
 
 Variants are always optional for making risk assessments, however the field and
 the remaining fields are required.  
+
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+## Making predictions 
+To predict [partial hazard](https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#cox-s-proportional-hazard-model) values 
+
+```python
+example_data = ipm.load_example_data()
+result = generate_risk_predictions(example_data)
+```
+
+| id      |   sex |   PRS |   Family History | variant        |   Partial Hazard Prediction |
+|:--------|------:|------:|-----------------:|:---------------|----------------------------:|
+| person1 |     M | -0.54 |                0 |                |                    1.37421  |
+| person2 |     F |  2.51 |                1 | 2-21001432-G-A |                    2.06113  |
+| person3 |     F |  0    |                1 | 2-21001769-G-T |                    0.230054 |
+| person4 |     F |  1.3  |                0 |                |                    0.645135 |
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+### References 
+
+
+[1] Green, E. D. et al. Strategic vision for improving human health at The Forefront of Genomics. Nature 586, 683–692 (2020).
+
+[2]	Richards, S. et al. Standards and guidelines for the interpretation of sequence variants: a joint consensus recommendation of the American College of Medical Genetics and Genomics and the Association for Molecular Pathology. Genet. Med. 17, 405–423 (2015).
+
+[3]	Rehm, H. L. et al. ClinGen — The Clinical Genome Resource. N. Engl. J. Med. 372, 2235–2242 (2015).
+
+[4]	Goodrich, J. K. et al. Determinants of penetrance and variable expressivity in monogenic metabolic conditions across 77,184 exomes. Nat. Commun. 12, 3505 (2021).
+
+[5]	Cassa, C. A., Tong, M. Y. & Jordan, D. M. Large numbers of genetic variants considered to be pathogenic are common in asymptomatic individuals. Hum Mutat (2013) doi:10.1002/humu.22375.
+
+[6]	Forrest, I. S. et al. Ancestrally and Temporally Diverse Analysis of Penetrance of Clinical Variants in 72,434 Individuals. http://medrxiv.org/lookup/doi/10.1101/2021.03.11.21253430 (2021) doi:10.1101/2021.03.11.21253430.
+
+[7]	Fahed, A. C. et al. Polygenic background modifies penetrance of monogenic variants conferring risk for coronary artery disease, breast cancer, or colorectal cancer. http://medrxiv.org/lookup/doi/10.1101/19013086 (2019) doi:10.1101/19013086.
+
+[8]	Friebel, T. M., Domchek, S. M. & Rebbeck, T. R. Modifiers of Cancer Risk in BRCA1 and BRCA2 Mutation Carriers: A Systematic Review and Meta-Analysis. JNCI J. Natl. Cancer Inst. 106, (2014).
+
+[9]	Saadatagah, S. et al. Genetic basis of hypercholesterolemia in adults. Npj Genomic Med. 6, 1–7 (2021).
+
 
