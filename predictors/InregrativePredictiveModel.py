@@ -137,7 +137,7 @@ class IntegrativePredictiveModel():
         df = self.clean_input_csv(df)
         self.validate_reference_alleles(df["variant"].values)
         appended_df = self.append_variant_info(df)
-        pass
+        return appended_df
 
 
 if __name__ == "__main__":
@@ -145,9 +145,9 @@ if __name__ == "__main__":
     p.initialize("APOB")
     df = pd.read_csv("./precomputed_snp_values/APOB.csv").set_index("name")
     variants = list(df.index)
-    p.generate_risk_predictions("./example_data/APOB.csv")
+    pred = p.generate_risk_predictions("./example_data/APOB.csv")
     d = p.load_example_data()
-    print(d.to_markdown(tablefmt="grid"))
+    print(pred.to_markdown())
     # print(df.loc[df["Missense"] == 1].index.values[:4])
     # p.help()
     # raise(VariantFormatException("NON VARIANT"))
