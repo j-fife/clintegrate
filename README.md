@@ -21,7 +21,7 @@ Read our full manuscript [Here](./#) (preprint)
 
 Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is a intergrative 
 risk prediction framework designed to address issues around variant interpretation as it pertains to current 
-practices in precision medicine. 
+practices in personalized risk assessment. 
 
 From our manuscript:
 >Mapping germline variants to personalized clinical risk is a major goal in precision medicine.[1] While clinical 
