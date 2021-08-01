@@ -17,10 +17,10 @@ class VariantNotInGeneException(Exception):
     def __init__(self, variant, chrom, start, end, gene):
         self.message = f"""
         Variant not in bounds of specified gene
-        Variant {varaint} is not in {gene}
+        Variant {variant} is not in {gene}
         {gene} Assembly 38 coordiantes are: {chrom}:g.{start} - {chrom}:g.{end}
         """
-        super(VariantFormatException, self).__init__(self.message)
+        super(VariantNotInGeneException, self).__init__(self.message)
 
 class InvalidGeneException(Exception):
     def __init__(self, input_gene):

@@ -26,10 +26,13 @@ class IntegrativePredictiveModel():
         if gene in included_genes:
             self.gene = gene
             self.model = f"./models/{gene}.clintegrate"
-            df = pd.read_csv(f"./precomputed_snp_values/{gene}.csv").set_index("name")
+            df = pd.read_csv(
+                f"./precomputed_snp_values/cleaned_{gene}.csv"
+            ).set_index("name")
+
             df.drop(
                 columns = list(filter(lambda x : "Unnamed"  in x, list(df.columns))),
-                inplace = True
+                    inplace = True
             )
             self.precomputed_snps = df
             self.initialized = True
@@ -85,7 +88,8 @@ class IntegrativePredictiveModel():
     def clean_input_csv(self, df):
         self.validate_initialized()
         sex_to_int = {"M" : 1, "F": 0}
-        df["sex"] = df["sex"].apply(lambda x : sex_to_int[x])
+        if "sex" in df.columns:
+            df["sex"] = df["sex"].apply(lambda x : sex_to_int[x])
         return df
 
     def append_variant_info(self, df):
@@ -104,7 +108,13 @@ class IntegrativePredictiveModel():
             else:
                 patient_variant_dict[index] = variant_fields
 
-        variant_level_df = pd.DataFrame.from_dict(patient_variant_dict, orient = "index")
+        variant_level_df = pd.DataFrame.from_dict(
+            patient_variant_dict,
+            orient = "index"
+        )
+
+        print(variant_level_df)
+
         joined_df = df.join(variant_level_df)
 
         cph = pickle.load(open(self.model, "rb"))
@@ -130,9 +140,8 @@ class IntegrativePredictiveModel():
 
 
 
-    def generate_risk_predictions(self, csv_path):
+    def generate_risk_predictions(self, df):
         self.validate_initialized()
-        df = pd.read_csv(csv_path, index_col = 0)
         self.validate_input_csv(df)
         df = self.clean_input_csv(df)
         self.validate_reference_alleles(df["variant"].values)
@@ -142,12 +151,19 @@ class IntegrativePredictiveModel():
 
 if __name__ == "__main__":
     p = IntegrativePredictiveModel()
-    p.initialize("APOB")
-    df = pd.read_csv("./precomputed_snp_values/APOB.csv").set_index("name")
-    variants = list(df.index)
-    pred = p.generate_risk_predictions("./example_data/APOB.csv")
+    p.initialize("BRCA2")
+    df = pd.read_csv("./precomputed_snp_values/BRCA2.csv").set_index("name")
+    missense_variants = df.loc[df["Missense"] == 1].index.values[:4]
+    delet_variants = df.loc[df["Deleterious"] == 1].index.values[:3]
+
+    print("missense", missense_variants)
+    print("delet", delet_variants)
+
     d = p.load_example_data()
-    print(pred.to_markdown())
+    pred = p.generate_risk_predictions(d)
+    #
+    # print(pred)
+    # print(pred.to_markdown())
     # print(df.loc[df["Missense"] == 1].index.values[:4])
     # p.help()
     # raise(VariantFormatException("NON VARIANT"))

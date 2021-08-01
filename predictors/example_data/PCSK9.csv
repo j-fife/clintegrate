@@ -1,0 +1,5 @@
+id,sex,PRS,Family History,variant
+person1,M,2.31,0,
+person2,M,-1.7,1,1-55039841-G-C
+person3,F,0.6,0,1-55039838-A-G
+person4,F,-0.21,1,
