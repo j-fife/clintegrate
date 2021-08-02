@@ -8,5 +8,6 @@ setup(
     author='James Fife',
     author_email='jamesdavidfife@gmail.com',
     url='https://github.com/j-fife/clintegrate',
-    packages=find_packages(exclude=['test'])
+    packages=find_packages(exclude=['test']),
+    py_modules = ["clintegrate"]
 )
