@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='Clintegrate',
-    version='1.0',
+    name='clintegrate',
+    version='1.0.1',
     description='Package for clintegrate framework',
     author='James Fife',
     author_email='jamesdavidfife@gmail.com',
