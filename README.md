@@ -8,10 +8,12 @@
 Version Beta 2.1.2
 ____________________________________________________________________
 
+[![Generic badge](https://img.shields.io/badge/Creator-Christopher\ Cassa\ Lab-<COLOR>.svg)](https://shields.io/)
 ![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)
-
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+[![DOI:___](https://zenodo.org/badge/DOI/____7-4_15.svg)](https://doi.org/___)
 
 [Online Web Tool](https://clintegrate.herokuapp.com/)
 
