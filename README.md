@@ -9,6 +9,7 @@ Version Beta 2.1.2
 ____________________________________________________________________
 
 [![Generic badge](https://img.shields.io/badge/Creator-Christopher_Cassa_Lab-maroon.svg)](http://genetics.bwh.harvard.edu/wiki/cassa/)
+[![Generic badge](https://img.shields.io/badge/Maintainer-James Fife-Maroon.svg)](jfife@bwh.harvard.edu)
 ![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)
