@@ -10,9 +10,12 @@ from clintegrate.predictors.Exceptions  import (
     InvalidGeneException,
     NotInitializedException
 )
-from clintegrate.predictors.tools import validate_variant_format
+from clintegrate.predictors.tools import (
+    validate_variant_format
+ )
 import pandas as pd
 import pickle
+import pkg_resources
 
 
 class IntegrativePredictiveModel():
@@ -22,12 +25,20 @@ class IntegrativePredictiveModel():
         self.precomputed_snps = None
         self.initialized = False
 
+    def load_df(self, p, use_index_0=False):
+        stream = pkg_resources.resource_stream(__name__, p)
+        if use_index_0:
+            return pd.read_csv(stream, encoding='latin-1', index_col = 0)
+        else:
+            return pd.read_csv(stream, encoding='latin-1')
+
     def initialize(self, gene):
         if gene in included_genes:
             self.gene = gene
             self.model = f"./models/{gene}.clintegrate"
-            df = pd.read_csv(
-                f"./precomputed_snp_values/cleaned_{gene}.csv"
+
+            df = self.load_df(
+                f"precomputed_snp_values/cleaned_" + gene + ".csv"
             ).set_index("name")
 
             df.drop(
@@ -50,7 +61,7 @@ class IntegrativePredictiveModel():
 
     def load_example_data(self):
         self.validate_initialized()
-        df = pd.read_csv(f"./example_data/{self.gene}.csv", index_col = 0)
+        df = self.load_df(f"example_data/{self.gene}.csv", use_index_0=True)
         return df
 
     def validate_input_csv(self, df):
@@ -118,7 +129,7 @@ class IntegrativePredictiveModel():
         )
 
         joined_df = df.join(variant_level_df)
-
+        stream = pkg_resources.resource_stream(__name__, self.model)
         cph = pickle.load(open(self.model, "rb"))
         predictions = cph.predict_partial_hazard(joined_df)
         predictions.rename(
@@ -147,3 +158,10 @@ class IntegrativePredictiveModel():
         if "sex" in appended_df.columns:
             appended_df["sex"] = appended_df["sex"].apply(lambda x : int_to_sex[x])
         return appended_df
+
+if __name__ == "__main__":
+    ipm = IntegrativePredictiveModel()
+    ipm.initialize("APOB")
+    data = ipm.load_example_data()
+    res = ipm.generate_risk_predictions(data)
+    print(res)

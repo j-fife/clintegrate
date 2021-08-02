@@ -15,9 +15,18 @@ import requests
 import json
 import numpy as np
 import pandas as pd
+import pkg_resources
 
 EXT = '/?CADD=1&canonical=1&dbNSFP=phyloP100way_vertebrate,GERP%2B%2B_RS&content-type=application/json'
 VEP38_URL = 'https://rest.ensembl.org/vep/human/hgvs/'
+
+def load_df(path, use_index_0=False):
+    stream = pkg_resources.resource_stream(__name__, path)
+    if use_index_0:
+        return pd.read_csv(stream, encoding='latin-1', index_col = 0)
+    else:
+        return pd.read_csv(stream, encoding='latin-1')
+
 
 def determine_most_severe_consequence(terms_string):
     delet_terms = ["frameshift","stop_lost","splice_donor","splice_acceptor","stop_gain", "nonsense"]
@@ -138,15 +147,13 @@ def SNP_get_variant_data(chr, start, ref, alt, gene):
     # except:
     #     print("threw exception when getting json from vep" , url + variant + EXT)
 
-
 def validate_variant_format(variant, gene):
     start = GENE_TO_START_38[gene]
     end = GENE_TO_END_38[gene]
     chrom = GENE_TO_CHR[gene]
 
-    with open(f'./data/sequences/{gene}_38.json') as f:
-        gene_json = json.load(f)
-    f.close()
+    stream = pkg_resources.resource_stream(__name__, f'data/sequences/{gene}_38.json')
+    gene_json = json.load(stream)
 
     approved_characters = set(["A", "T", "C", "G"])
     try:
@@ -187,7 +194,7 @@ def clean_and_fill_missing_values(df, gene):
     gene_end = None
     patient_to_variant_info_dicts = {}
     default_dict = default_variant_info_dictionaries[gene]
-    precomputed_variants_file = pd.read_csv(f"./precomputed_snp_values/{gene}.csv")
+    precomputed_variants_file = load_df(f"precomputed_snp_values/{gene}.csv")
     for index, row in df.iterrows():
         variant = row["variant"]
         if variant != "" and variant is not None:
@@ -216,3 +223,7 @@ def clean_and_fill_missing_values(df, gene):
     variant_info_df = pd.DataFrame(patient_to_variant_info_dicts)
     df = df.join(variant_info_df)
     return df
+
+if __name__ == "__main__":
+    df = load_df("precomputed_snp_values/APOB.csv")
+    validate_variant_format("2-21001432-G-A", "APOB")

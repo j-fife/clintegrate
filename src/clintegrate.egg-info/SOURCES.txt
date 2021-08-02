@@ -4,6 +4,8 @@ README.md
 pyproject.toml
 setup.cfg
 setup.py
+./predictors/Exceptions.py
+./predictors/vep_parser.py
 src/clintegrate/__init__.py
 src/clintegrate.egg-info/PKG-INFO
 src/clintegrate.egg-info/SOURCES.txt
