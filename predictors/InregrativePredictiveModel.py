@@ -147,23 +147,3 @@ class IntegrativePredictiveModel():
         self.validate_reference_alleles(df["variant"].values)
         appended_df = self.append_variant_info(df)
         return appended_df
-
-
-if __name__ == "__main__":
-    p = IntegrativePredictiveModel()
-    p.initialize("BRCA2")
-    df = pd.read_csv("./precomputed_snp_values/BRCA2.csv").set_index("name")
-    missense_variants = df.loc[df["Missense"] == 1].index.values[:4]
-    delet_variants = df.loc[df["Deleterious"] == 1].index.values[:3]
-
-    print("missense", missense_variants)
-    print("delet", delet_variants)
-
-    d = p.load_example_data()
-    pred = p.generate_risk_predictions(d)
-    #
-    # print(pred)
-    # print(pred.to_markdown())
-    # print(df.loc[df["Missense"] == 1].index.values[:4])
-    # p.help()
-    # raise(VariantFormatException("NON VARIANT"))
