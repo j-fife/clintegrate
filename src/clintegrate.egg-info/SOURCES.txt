@@ -10,7 +10,7 @@ src/clintegrate.egg-info/SOURCES.txt
 src/clintegrate.egg-info/dependency_links.txt
 src/clintegrate.egg-info/top_level.txt
 src/clintegrate/predictors/Exceptions.py
-src/clintegrate/predictors/InregrativePredictiveModel.py
+src/clintegrate/predictors/IntegrativePredictiveModel.py
 src/clintegrate/predictors/__init__.py
 src/clintegrate/predictors/constants.py
 src/clintegrate/predictors/tools.py
