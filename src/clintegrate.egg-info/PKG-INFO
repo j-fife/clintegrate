@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: clintegrate
-Version: 1.0.3
+Version: 1.0.4
 Summary: Integrative Risk Predictors
 Home-page: https://github.com/j-fife/clintegrate
 Author: James Fife
@@ -32,26 +32,26 @@ ____________________________________________________________________
 [Online Web Tool](https://clintegrate.herokuapp.com/)
 
 
-# About 
+# About
 Read our full manuscript [Here](./#) (preprint)
 
-Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is a intergrative 
-risk prediction framework designed to address issues around variant interpretation as it pertains to current 
-practices in personalized risk assessment. 
+Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is a intergrative
+risk prediction framework designed to address issues around variant interpretation as it pertains to current
+practices in personalized risk assessment.
 
 From our manuscript:
->Mapping germline variants to personalized clinical risk is a major goal in precision medicine.[1] While clinical 
->diagnostic testing has advanced dramatically, the interpretation of monogenic variants remains challenging, 
->and is generally done at the variant level.[2] To date, such genetic testing has largely been conducted in 
->the presence of a phenotypic indication, where the prior probability of detecting a causal variant is high.[3] 
->However, subsequent population screening efforts have identified substantial incomplete penetrance or reduced 
->expressivity in these previously identified monogenic disease variants[4–6] and assessed how the risk attributable 
->to these variants can be modified by clinical and polygenic risk factors.[7–9] 
+>Mapping germline variants to personalized clinical risk is a major goal in precision medicine.[1] While clinical
+>diagnostic testing has advanced dramatically, the interpretation of monogenic variants remains challenging,
+>and is generally done at the variant level.[2] To date, such genetic testing has largely been conducted in
+>the presence of a phenotypic indication, where the prior probability of detecting a causal variant is high.[3]
+>However, subsequent population screening efforts have identified substantial incomplete penetrance or reduced
+>expressivity in these previously identified monogenic disease variants[4–6] and assessed how the risk attributable
+>to these variants can be modified by clinical and polygenic risk factors.[7–9]
 
-We present a framework that integrates patient-level information 
-(Polygenic Risk Scores, Family History, Sex, etc.), monogenic variant-level features (CADD, Allele Frequency, GERP, 
-CpG Context, phyloP, etc.) and protein regional information to create an overall measurement of risk. With growing 
-availability of population-level sequencing efforts and diagnostic data, we aim to continually expand this model 
+We present a framework that integrates patient-level information
+(Polygenic Risk Scores, Family History, Sex, etc.), monogenic variant-level features (CADD, Allele Frequency, GERP,
+CpG Context, phyloP, etc.) and protein regional information to create an overall measurement of risk. With growing
+availability of population-level sequencing efforts and diagnostic data, we aim to continually expand this model
 to include additioanl phenotypes and risk factors (genetic and non-genetic).   
 
 # Getting Started
@@ -73,7 +73,7 @@ The following disease models are available with varaint integration in genes ass
 ## Initalizing a model
 
 ```python
-from clintegrate.predictors import IntegrativePredictiveModel
+from clintegrate.predictors.risk import IntegrativePredictiveModel
 
 # Making predictions of coronary artery disease risk using APOB variants
 ipm = IntegrativePredictiveModel()
@@ -103,8 +103,8 @@ the remaining fields are required.
 &nbsp;
 &nbsp;
 
-## Making predictions 
-To predict [partial hazard](https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#cox-s-proportional-hazard-model) values 
+## Making predictions
+To predict [partial hazard](https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#cox-s-proportional-hazard-model) values
 
 ```python
 example_data = ipm.load_example_data()
@@ -123,7 +123,7 @@ generate_risk_predictions(example_data)
 &nbsp;
 &nbsp;
 
-### References 
+### References
 
 
 [1] Green, E. D. et al. Strategic vision for improving human health at The Forefront of Genomics. Nature 586, 683–692 (2020).
@@ -143,7 +143,5 @@ generate_risk_predictions(example_data)
 [8]	Friebel, T. M., Domchek, S. M. & Rebbeck, T. R. Modifiers of Cancer Risk in BRCA1 and BRCA2 Mutation Carriers: A Systematic Review and Meta-Analysis. JNCI J. Natl. Cancer Inst. 106, (2014).
 
 [9]	Saadatagah, S. et al. Genetic basis of hypercholesterolemia in adults. Npj Genomic Med. 6, 1–7 (2021).
-
-
 
 

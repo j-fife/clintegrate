@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clintegrate',
-    version='1.0.3',
+    version='1.0.5',
     description='Integrative Risk Predictors',
     author='James Fife',
     author_email='jamesdavidfife@gmail.com',
@@ -14,5 +14,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     py_modules = ["clintegrate"],
-    packages=find_packages(where="src")
+    packages=find_packages(where="src/clintegrate")
 )

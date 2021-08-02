@@ -4,16 +4,14 @@ README.md
 pyproject.toml
 setup.cfg
 setup.py
-./predictors/Exceptions.py
-./predictors/vep_parser.py
 src/clintegrate/__init__.py
 src/clintegrate.egg-info/PKG-INFO
 src/clintegrate.egg-info/SOURCES.txt
 src/clintegrate.egg-info/dependency_links.txt
 src/clintegrate.egg-info/top_level.txt
 src/clintegrate/predictors/Exceptions.py
-src/clintegrate/predictors/IntegrativePredictiveModel.py
 src/clintegrate/predictors/__init__.py
 src/clintegrate/predictors/constants.py
+src/clintegrate/predictors/risk.py
 src/clintegrate/predictors/tools.py
 src/clintegrate/predictors/vep_parser.py
