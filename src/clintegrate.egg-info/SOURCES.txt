@@ -5,6 +5,7 @@ pyproject.toml
 setup.cfg
 setup.py
 src/.DS_Store
+src/__init__.py
 src/clintegrate/.DS_Store
 src/clintegrate/__init__.py
 src/clintegrate.egg-info/PKG-INFO
