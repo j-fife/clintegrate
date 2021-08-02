@@ -1,4 +1,4 @@
-from constants import included_genes
+from clintegrate.predictors.constants import included_genes
 
 
 class InvalidFormatError(Exception):

@@ -1,16 +1,16 @@
-from constants import (
+from clintegrate.predictors.constants import (
     included_genes,
     help_statement,
     gene_to_required_fields,
     default_variant_info_dictionaries
 )
-from Exceptions import (
+from clintegrate.predictors.Exceptions  import (
     InvalidFormatError,
     VariantFormatException,
     InvalidGeneException,
     NotInitializedException
 )
-from tools import validate_variant_format
+from clintegrate.predictors.tools import validate_variant_format
 import pandas as pd
 import pickle
 

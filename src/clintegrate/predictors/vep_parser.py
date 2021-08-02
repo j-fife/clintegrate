@@ -2,7 +2,7 @@ import pandas as pd
 import copy
 import re
 import numpy as np
-from constants import default_variant_info_dictionaries, gene_to_region_breaks
+from clintegrate.predictors.constants import default_variant_info_dictionaries, gene_to_region_breaks
 
 def annotate_consequences(consequence_list):
     consequences_used = []

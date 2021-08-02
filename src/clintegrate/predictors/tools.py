@@ -1,15 +1,16 @@
-from constants import (
+from clintegrate.predictors.constants import (
     default_variant_info_dictionaries,
     gene_to_region_breaks,
     GENE_TO_END_38,
     GENE_TO_START_38,
     GENE_TO_CHR
 )
-from Exceptions import (
+from clintegrate.predictors.Exceptions import (
     VariantNotInGeneException,
     VariantFormatException,
     ReferenceSequenceException
 )
+
 import requests
 import json
 import numpy as np
