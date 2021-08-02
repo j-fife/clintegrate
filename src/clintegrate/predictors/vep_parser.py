@@ -186,9 +186,3 @@ def create_precomputed_SNP_df(input_annotated_vcf, gene):
 
     to_return = pd.DataFrame(rows)
     return to_return
-
-
-
-if __name__ == "__main__":
-    df = create_precomputed_SNP_df("./data/vcf_files/annotated_APOB_SNPs.vcf", "APOB")
-    df.to_csv("./precomputed_snp_values/APOB.csv")

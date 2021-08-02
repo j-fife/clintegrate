@@ -215,12 +215,3 @@ def clean_and_fill_missing_values(df, gene):
     variant_info_df = pd.DataFrame(patient_to_variant_info_dicts)
     df = df.join(variant_info_df)
     return df
-    ## need to clean df
-
-
-if __name__ == "__main__":
-    #validate_variant_format("2-21001433-T-G", "APOB")
-    i = deletion_get_variant_data(2, 21001735, 1, "APOB")
-    print(i)
-    k = SNP_get_variant_data(2, 21001735, "G", "A", "APOB")
-    print(k)
