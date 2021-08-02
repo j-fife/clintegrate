@@ -31,8 +31,10 @@ class IntegrativePredictiveModel():
             ).set_index("name")
 
             df.drop(
-                columns = list(filter(lambda x : "Unnamed"  in x, list(df.columns))),
-                    inplace = True
+                columns = list(
+                    filter(lambda x : "Unnamed"  in x, list(df.columns))
+                ),
+                inplace = True
             )
             self.precomputed_snps = df
             self.initialized = True
@@ -56,7 +58,9 @@ class IntegrativePredictiveModel():
         required_fields = gene_to_required_fields[self.gene]
         for r in required_fields:
             if r not in df.columns:
-                raise(InvalidFormatError(f"Missing required field in csv header: {r}"))
+                raise(InvalidFormatError(
+                        f"Missing required field in csv header: {r}")
+                )
 
         if "sex" in required_fields:
             vals = set(df["sex"])
@@ -113,8 +117,6 @@ class IntegrativePredictiveModel():
             orient = "index"
         )
 
-        print(variant_level_df)
-
         joined_df = df.join(variant_level_df)
 
         cph = pickle.load(open(self.model, "rb"))
@@ -125,12 +127,7 @@ class IntegrativePredictiveModel():
         )
 
         predictions_appended = df.join(predictions)
-        print(predictions_appended)
         return predictions_appended
-
-        # print(len(patient_variant_dict))
-
-
 
     def validate_reference_alleles(self, variants):
         self.validate_initialized()
@@ -146,4 +143,7 @@ class IntegrativePredictiveModel():
         df = self.clean_input_csv(df)
         self.validate_reference_alleles(df["variant"].values)
         appended_df = self.append_variant_info(df)
+        int_to_sex = {1:"M", 0:"F"}
+        if "sex" in appended_df.columns:
+            appended_df["sex"] = appended_df["sex"].apply(lambda x : int_to_sex[x])
         return appended_df

@@ -1,2 +1,1 @@
-TODO : 11:30 in the video -> https://www.youtube.com/watch?v=JkeNVaiUq_c
-include ...
+include ./predictors/*
