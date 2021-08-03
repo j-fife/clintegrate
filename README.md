@@ -38,7 +38,7 @@ From our manuscript:
 
 We present a framework that integrates patient-level information
 (Polygenic Risk Scores, Family History, Sex, etc.), monogenic variant-level features (CADD, Allele Frequency, GERP,
-CpG Context, phyloP, etc.) and protein regional information to create an overall measurement of risk. With growing
+CpG Context, phyloP, etc.) and protein regional information to create a comprehensive measure of risk. With growing
 availability of population-level sequencing efforts and diagnostic data, we aim to continually expand this model
 to include additioanl phenotypes and risk factors (genetic and non-genetic).   
 
