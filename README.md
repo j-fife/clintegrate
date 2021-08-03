@@ -11,7 +11,7 @@ ____________________________________________________________________
 [![Generic badge](https://img.shields.io/badge/Creator-Christopher_A._Cassa_Lab-maroon.svg)](http://genetics.bwh.harvard.edu/wiki/cassa/)
 [![Generic badge](https://img.shields.io/badge/Maintainer-James_Fife-maroon.svg)](https://github.com/j-fife/)
 
-![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)
+![PyPI Latest Release](https://img.shields.io/pypi/v/clintegrate.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
