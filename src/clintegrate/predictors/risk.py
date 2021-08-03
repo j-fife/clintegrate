@@ -35,7 +35,7 @@ class IntegrativePredictiveModel():
     def initialize(self, gene):
         if gene in included_genes:
             self.gene = gene
-            self.model = f"./models/{gene}.clintegrate"
+            self.model = f"models/{gene}.clintegrate"
 
             df = self.load_df(
                 f"precomputed_snp_values/cleaned_" + gene + ".csv"

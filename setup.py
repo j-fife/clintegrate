@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clintegrate',
-    version='1.0.6',
+    version='1.0.7',
     description='Integrative Risk Predictors',
     author='James Fife',
     author_email='jamesdavidfife@gmail.com',
