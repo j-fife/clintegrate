@@ -5,7 +5,7 @@
      \___|_|_|_| |_|\__\___|\__, |_|  \__,_|\__\___|
                             |___/
 
-Version Beta 1.0.7
+Version 1.0.8
 ____________________________________________________________________
 
 [![Generic badge](https://img.shields.io/badge/Creator-Christopher_A._Cassa_Lab-maroon.svg)](http://genetics.bwh.harvard.edu/wiki/cassa/)
@@ -23,7 +23,7 @@ ____________________________________________________________________
 # About
 Read our full manuscript [Here](./#) (preprint)
 
-Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is a intergrative
+Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is an intergrative
 risk prediction framework designed to address issues around variant interpretation as it pertains to current
 practices in personalized risk assessment.
 
@@ -96,7 +96,7 @@ To predict [partial hazard](https://lifelines.readthedocs.io/en/latest/Survival%
 
 ```python
 example_data = ipm.load_example_data()
-generate_risk_predictions(example_data)
+ipm.generate_risk_predictions(example_data)
 ```
 
 | id      |   sex |   PRS |   Family History | variant        |   Partial Hazard Prediction |

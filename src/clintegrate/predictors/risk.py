@@ -130,7 +130,7 @@ class IntegrativePredictiveModel():
 
         joined_df = df.join(variant_level_df)
         stream = pkg_resources.resource_stream(__name__, self.model)
-        cph = pickle.load(open(self.model, "rb"))
+        cph = pickle.load(stream)
         predictions = cph.predict_partial_hazard(joined_df)
         predictions.rename(
             columns = {0 : "Partial Hazard Prediction"},

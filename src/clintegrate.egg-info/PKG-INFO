@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: clintegrate
-Version: 1.0.6
+Version: 1.0.7
 Summary: Integrative Risk Predictors
 Home-page: https://github.com/j-fife/clintegrate
 Author: James Fife
@@ -21,7 +21,7 @@ License-File: LICENSE
      \___|_|_|_| |_|\__\___|\__, |_|  \__,_|\__\___|
                             |___/
 
-Version Beta 2.1.2
+Version Beta 1.0.7
 ____________________________________________________________________
 
 [![Generic badge](https://img.shields.io/badge/Creator-Christopher_A._Cassa_Lab-maroon.svg)](http://genetics.bwh.harvard.edu/wiki/cassa/)
