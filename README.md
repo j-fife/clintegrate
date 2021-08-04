@@ -108,6 +108,13 @@ ipm.generate_risk_predictions(example_data)
 &nbsp;
 &nbsp;
 &nbsp;
+### Disclaimer  
+The information presented here should not be a substitute for professional medical treatment, diagnosis, or advice. We encourage you to investigate information from this manuscript or the accompanying software tools as it pertains to your health with medical supervision and expert opinion.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
 
 ### References
 
