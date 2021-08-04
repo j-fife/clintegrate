@@ -42,6 +42,11 @@ to include additioanl phenotypes and risk factors (genetic and non-genetic).
 
 # Getting Started
 
+Install:
+```sh
+pip install -i https://test.pypi.org/simple/ clintegrate
+```
+
 
 The following disease models are available with varaint integration in genes associated with each condition:
 
