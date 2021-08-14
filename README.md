@@ -13,13 +13,13 @@ ____________________________________________________________________
 
 [![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 ![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)
-[![DOI:___](https://zenodo.org/badge/DOI/_______.svg)](https://doi.org/___)
+[![DOI:___](https://zenodo.org/badge/DOI/10.1101/2021.08.12.21261563.svg)](https://doi.org/10.1101/2021.08.12.21261563)
 
 [Online Web Tool](https://clintegrate.herokuapp.com/)
 
 
 # About
-Read our full manuscript [Here](./#) (preprint)
+Read our full manuscript [here](https://www.medrxiv.org/content/10.1101/2021.08.12.21261563v1) (preprint)
 
 Using exome seqencing and data from over 200,000 individuals from the UK Biobank, Clintegrate is an intergrative
 risk prediction framework designed to address issues around variant interpretation as it pertains to current
